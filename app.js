@@ -4,6 +4,8 @@ const express=require('express');
 const ejs=require('ejs');
 //mongoose for mongoDb 
 const mongoose=require('mongoose')
+//methodOverride implement for unsupport put and delete request browser
+const methodOverride=require('method-override')
 
 //local host port
 const port=3000;
@@ -26,6 +28,7 @@ app.listen(port,()=>{
 app.use(express.static('public')); //static dosyalarımız tanımladık
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
+app.use(methodOverride('_method'))
 
 //Routes
 app.get('/', async(req,res)=>{
