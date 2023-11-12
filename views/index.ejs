@@ -34,12 +34,12 @@
                             <tbody>
                                 <% for(let i=0; i<tasks.length; i ++) { %>
                                 <tr>
-                                    <th scope="row"><%=i%></th>
+                                    <th scope="row"><%=(i+1)%></th>
                                     <td><%=tasks[i].name %></td>
                                     <td><%=tasks[i].status %></td>
                                     <td>
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                        <button type="submit" class="btn btn-success ms-1">Update</button>
+                                        <a onclick="return confirm('ARE YOU SURE')" href="/task/<%= tasks[i]._id %>?_method=DELETE" class="btn btn-danger">Delete</a>
+                                        <a href="/task/edit/<%=tasks[i]._id %>" type="submit" class="btn btn-success ms-1">Update</a>
                                     </td>
                                 </tr>
                                 <% } %>
