@@ -16,7 +16,7 @@ const port=3000;
 const app=express();
 
 //mongoDb connection
-mongoose.connect('mongodb://127.0.0.1:27017/to-do-db')
+//mongoose.connect('mongodb://127.0.0.1:27017/to-do-db')
 
 //Template engine
 app.set('view engine','ejs');
@@ -40,3 +40,5 @@ app.post('/task', taskController.createTask);
 app.get('/task/edit/:id', taskController.getTask);
 app.put('/task/:id', taskController.updateTask);
 app.delete('/task/:id', taskController.deleteTask);
+
+module.exports=app;
